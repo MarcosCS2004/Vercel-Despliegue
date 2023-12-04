@@ -5,14 +5,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion de</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
-                rel="stylesheet" 
-                integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 
-                crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
-            crossorigin="anonymous">
-    </script>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #555;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    #editar, #eliminar {
+            display: inline-block;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        #editar {
+            background-color: #4CAF50; 
+            color: white;
+        }
+
+        #eliminar {
+            background-color: #f44336; 
+            color: white;
+        }
+
+        #editar:hover, #eliminar:hover {
+            opacity: 0.8;
+        }
+        .mensaje-flash {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            background-color: #4CAF50; 
+        }
+        h5 {
+          text-align: center;
+            color: #333;
+            font-size: 1.5em; 
+             margin-top: 20px; 
+            margin-bottom: 20px; 
+            text-transform: uppercase; 
+        }
+        li{
+            list-style: none;
+            margin: 1%;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -74,9 +174,9 @@
                                                 <input type="text" class="form-control" value="{{mascota.raza}}" name="raza">
                                                 <small>Dueño</small>
                                                 <input type="text" class="form-control" value="{{mascota.duenio}}" name="duenio">
-                                                <button class="btn btn-primary btn-sm mt-3" type="submit">Editar</button>
+                                                <button class="btn btn-primary btn-sm mt-3" type="submit" id="editar">Editar</button>
                                                 <a href="{{url_for('deleteMascota', id=mascota.id)}}" 
-                                                        class="btn btn-danger btn-sm mt-3">Eliminar</a>
+                                                        class="btn btn-danger btn-sm mt-3" id="eliminar">Eliminar</a>
                                             </form>
                                         </li>
                                     </div>
